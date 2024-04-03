@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kolmen luvun laskin</title>
+</head>
+<body>
+<h1> Kolmen luvun laskin</h1>
+    <script>
+    let str1 = parseInt(prompt("Syötä ensimmäinen kokonaisluku"));
+    let str2 = parseInt(prompt("Syötä toinen kokonaisluku"));
+    let str3 = parseInt(prompt("Syötä kolmas kokonaisluku"));
+
+    //Lasketaan summa
+    let summa = str1 + str2 + str3;
+
+    //Lasketaan tulo
+    let tulo = str1 * str2 * str3;
+
+    //Lasketaan keskiarvo
+    let keskiarvo = summa / 3;
+
+    // Tulostetaan tulokset HTML-Dokumenttiin
+        document.write("<p>Summa: " + summa + "</p>");
+        document.write("<p>Tulo: " + tulo + "</p>");
+        document.write("<p>Keskiarvo: " + keskiarvo + "</p>");
+    </script>
+</body>
+</html>

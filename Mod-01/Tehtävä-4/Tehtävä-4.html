@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lajitteluhattu</title>
+</head>
+<body>
+<h1>Lajitteluhattu</h1>
+<script>
+    // Kysytään opiskelijan nimi promptilla
+    const nimi = prompt("Mikä sinun nimesi on: ")
+
+    // Arvotaan huoneen numero 1-4 välillä
+    const huoneenNumero = parseInt(Math.random() * 4) + 1;
+
+     // Alustetaan huoneen nimi
+    let huoneenNimi;
+    if (huoneenNumero === 1) {
+        huoneenNimi = "Gryffindor"
+    }else if (huoneenNumero === 2){
+        huoneenNimi = "Slytherin"
+    }else if (huoneenNumero === 3){
+        huoneenNimi = "Hufflepuff"
+    }else {
+        huoneenNimi = "Korpinkynsi"}
+
+     document.write(nimi + " olet " + huoneenNimi )
+
+
+
+</script>
+</body>
+</html>
