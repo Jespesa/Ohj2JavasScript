@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    if (window.confirm('Should I calculate the square root ?')) {
+        var number = prompt("Give me a number");
+        if (number < 0) {
+            document.write("The square root of a negative number is not defined");
+        } else {
+            var squareroot = Math.sqrt(number);
+            document.write("Squareroot of number " + number + " is " + squareroot);
+        }
+    } else {
+        document.write("The square root is not calculated");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Odota, kunnes koko HTML-sivu on ladattu ja DOM on valmis
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kysytään käyttäjältä aloitusvuosi ja tallennetaan se startYear-muuttujaan
+            const startYear = prompt('Give me a start year');
+
+            // Kysytään käyttäjältä lopetusvuosi ja tallennetaan se endYear-muuttujaan
+            const endYear = prompt('Give me an end year');
+
+            // Haetaan dokumentista ul-elementti, johon tulostetaan karkausvuodet
+            const htmlList = document.querySelector('ul');
+
+            // Funktio, joka tarkistaa karkausvuodet
+            function checkForLeapYear() {
+                // Muutetaan aloitus- ja lopetusvuodet numeroiksi
+                const start = Number(startYear);
+                const end = Number(endYear);
+
+                // Alustetaan tyhjä taulukko leapYears, johon tallennetaan karkausvuodet
+                const leapYears = [];
+
+                // Käydään läpi jokainen vuosi aloitusvuodesta lopetusvuoteen asti
+                for (let i = start; i <= end; i++) {
+                    let isLeapYear = false;
+
+                    // Jos vuosi on jaollinen 4:llä, se voi olla karkausvuosi
+                    if (i % 4 === 0) {
+                        isLeapYear = true;
+
+                        // Jos vuosi on jaollinen 100:lla ja 400:lla, se on varmasti karkausvuosi
+                        if (i % 100 === 0) {
+                            if (i % 400 === 0) {
+                                isLeapYear = true;
+                            } else {
+                                isLeapYear = false;
+                            }
+                        }
+                    }
+
+                    // Jos vuosi on karkausvuosi, lisätään se leapYears-taulukkoon
+                    if (isLeapYear) {
+                        leapYears.push(i);
+                    }
+                }
+
+                // Jos karkausvuosia ei ole, tulostetaan "No leap years", muuten muunnetaan vuodet li-elementeiksi ja liitetään ne yhteen stringiin
+                htmlList.innerHTML = leapYears.length === 0 ? '<li>No leap years</li>' : leapYears.map(year => '<li>' + year + '</li>').join('');
+            }
+
+            // Kutsutaan checkForLeapYear-funktiota, joka suorittaa karkausvuosien tarkistuksen ja tulostuksen
+            checkForLeapYear();
+        });
+    </script>
+    <!-- Tyhjä ul-elementti, johon karkausvuodet tulostetaan -->
+    <ul></ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict'
+     //Kysytään montako nopanheittoa ja muutetaan vastaus kokonaisluvuksi parseintillä
+     var numrolls = parseInt(prompt("How many dice rolls ?: "));
+
+     //Muuttuja mihin voidaan sijoittaa rollausten summa
+     var sum = 0;
+
+     //Loopataan läpi jokainen nopanheitto
+     for (var i = 0; i < numrolls; i++) {
+        //luodaan random numero 1-6 välillä jokaiselle rollaukselle
+        var roll = Math.floor(Math.random() * 6) + 1;
+
+        //Lisätään rollaukset summaan
+        sum += roll;
+    }
+
+     //printataan lopullinen summa kaikista rollauksista
+    document.write("Total sum: " + sum);
+
+</script>
+</body>
+</html>

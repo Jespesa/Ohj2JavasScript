@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // Funktio tarkistaa, onko annettu luku alkuluku
+    function isPrimeNumber(input) {
+        // Muutetaan annettu syöte numeroksi
+        const number = Number(input);
+        // Alustetaan muuttuja alkuluvun tilaa varten
+        let isPrime = true;
+
+        // Alkuluvun on oltava suurempi kuin 1
+        if (number === 1) {
+            // Jos luku on 1, se ei ole alkuluku
+            isPrime = false;
+        } else if (number > 1) {
+            // Jos luku on suurempi kuin 1, tarkistetaan onko se jaollinen jollain muulla luvulla kuin 1 ja itsellään
+            for (let i = 2; i < number; i++) {
+                // Jos luku on jaollinen jollain muulla luvulla kuin 1 ja itsellään, se ei ole alkuluku
+                if (number % i === 0) {
+                    // Jos luku on jaollinen, se ei ole alkuluku, ja silmukka keskeytetään
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        // Palautetaan totuusarvo, onko luku alkuluku
+        return isPrime;
+    }
+
+    //kysytään käyttäjältä kokonaislukua
+    const kokonaisluku = parseInt(prompt("Syötä kokonaisluku: "));
+
+    // Tarkistetaan, onko annettu luku alkuluku ja tulostetaan vastaus
+    if (isPrimeNumber(kokonaisluku)) {
+        // Jos luku on alkuluku, tulostetaan viesti
+        document.write("Luku on alkuluku.");
+    } else {
+        // Jos luku ei ole alkuluku, tulostetaan viesti
+        document.write("Luku ei ole alkuluku.");
+    }
+</script>
+</body>
+</html>
