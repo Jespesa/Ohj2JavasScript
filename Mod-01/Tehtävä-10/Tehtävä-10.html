@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <!-- Määritellään dokumentin metatiedot: merkistö ja näyttöasetukset -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentti</title>
+</head>
+
+<body>
+    <!-- JavaScript-koodi alkaa -->
+    <script>
+        // Odottaa, että koko HTML-dokumentti on ladattu ennen kuin suoritetaan
+        document.addEventListener('DOMContentLoaded', function () {
+            // Pyydetään käyttäjältä kaksi lukua: noppia ja haluttu summa
+            const numDice = prompt('Anna noppien lukumäärä');
+            const targetSum = prompt('Anna haluttu summa');
+            // Etsitään p-elementti, johon tulokset tulostetaan
+            const pElement = document.querySelector('p');
+
+            // Funktio todennäköisyyden laskemiseen
+            const calcProbability = () => {
+                // Muutetaan käyttäjän antamat merkkijonot numeroiksi
+                const dice = Number(numDice);
+                const desiredSum = Number(targetSum);
+                // Lasketaan kaikkien mahdollisten tulosten määrä
+                let totalOutcomes = Math.pow(6, dice);
+                // Lasketaan mahdollisten tulosyhdistelmien määrä
+                let favorableOutcomes = calculateSums(dice, desiredSum);
+
+                // Lasketaan todennäköisyys mahdollisten tulosyhdistelmien ja kaikkien yhdistelmien suhteena
+                let probability = (favorableOutcomes / totalOutcomes) * 100;
+                // Pyöristetään todennäköisyys kahden desimaalin tarkkuuteen
+                probability = probability.toFixed(2);
+                // Tulostetaan todennäköisyys p-elementtiin
+                pElement.textContent = 'Halutun summan ' + desiredSum + ' todennäköisyys ' + dice + ' nopalla on ' + probability + '%';
+            };
+
+            // Funktio mahdollisten tulosyhdistelmien laskemiseen
+            const calculateSums = (dice, desiredSum) => {
+                // Jos noppia ei ole, palautetaan 1, jos haluttu summa on 0, muuten 0
+                if (dice === 0) return desiredSum === 0 ? 1 : 0;
+                // Jos haluttu summa on 0 tai pienempi, palautetaan 0
+                if (desiredSum <= 0) return 0;
+                let count = 0;
+                // Käydään läpi jokainen mahdollinen nopan silmäluku
+                for (let i = 1; i <= 6; i++) {
+                    // Vähennetään nopan silmäluku halutusta summasta ja lasketaan mahdollisten tulosyhdistelmien määrä
+                    count += calculateSums(dice - 1, desiredSum - i);
+                }
+                // Palautetaan mahdollisten tulosyhdistelmien määrä
+                return count;
+            };
+
+            // Kutsutaan todennäköisyyden laskentafunktiota
+            calcProbability();
+        });
+    </script>
+    <!-- Tyhjä p-elementti, johon tulokset tulostetaan -->
+    <p></p>
+</body>
+
+</html>
