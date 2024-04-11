@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // Alusta funktio nimeltä concat, joka ottaa vastaan joukon merkkijonoja parametreinaan
+    function concat(...strings) {
+        let result = ""; // Alustetaan tyhjä merkkijono tulosmuuttujaan
+
+        // Käydään läpi kaikki parametrina saadut merkkijonot
+        for (let str of strings) {
+            result += str; // Lisätään jokainen merkkijono tulosmuuttujaan
+        }
+
+        return result; // Palautetaan yhdistetty merkkijono
+    }
+
+    // Kutsutaan concat-funktiota ja annetaan sille parametreina merkkijonoja
+    document.write(concat("Johnny", "DeeDee", "Joey", "Marky"));
+
+</script>
+</body>
+</html>

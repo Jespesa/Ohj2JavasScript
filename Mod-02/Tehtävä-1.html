@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    let numerot = [];
+
+    for (let i = 0; i < 5; i++) {
+        let numero = parseInt(prompt("Syötä numero: "));
+        numerot.push(numero);
+    }
+
+    let numerotreversed = [];
+
+    for (let i = numerot.length - 1; i >= 0; i--) {
+        numerotreversed.push(numerot[i]);
+    }
+
+    document.write(numerotreversed);
+
+</script>
+</body>
+</html>

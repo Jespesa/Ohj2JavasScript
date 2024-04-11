@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+
+    let koiran_nimet = [];
+    for (let i = 0; i < 6; i++)
+        koiran_nimet.push(prompt("Syötä 6 koiran nimeä: "));
+
+    koiran_nimet.sort();
+    koiran_nimet.reverse();
+
+    document.write("<ol>");
+    koiran_nimet.forEach(function(koiran_nimet){
+        document.write ("<li>" + koiran_nimet + "</li>");
+    });
+
+     document.write("</ol>");
+</script>
+</body>
+</html>

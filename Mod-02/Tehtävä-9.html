@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // Määritellään funktio even, joka palauttaa uuden taulukon, jossa on alkuperäisen taulukon parilliset luvut
+    function even(taulukko) {
+        // Luodaan uusi tyhjä taulukko parillisille luvuille
+        const parilliset = [];
+
+        // Käydään läpi jokainen alkio alkuperäisessä taulukossa
+        for (let i = 0; i < taulukko.length; i++) {
+            // Tarkistetaan, onko nykyinen luku parillinen
+            if (taulukko[i] % 2 === 0) {
+                // Lisätään parillinen luku uuteen taulukkoon
+                parilliset.push(taulukko[i]);
+            }
+        }
+
+        // Palautetaan uusi taulukko, jossa on vain parilliset luvut
+        return parilliset;
+    }
+
+    // Alkuperäinen taulukko
+    const taulukko = [2, 7, 4];
+
+    // Uusi taulukko, jossa on parilliset luvut
+    const parillisetLuvut = even(taulukko);
+
+    // Tulostetaan alkuperäinen ja uusi taulukko konsoliin
+    console.log("Alkuperäinen taulukko:", taulukko);
+    console.log("Parilliset luvut:", parillisetLuvut);
+</script>
+</body>
+</html>

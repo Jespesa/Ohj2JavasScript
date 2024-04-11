@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict"
+    let maxosallistujat = prompt("Syötä osallistujien maksimimäärä: ");
+    let osallistujat = [];
+
+    for (let i = 0; i < maxosallistujat; i++) {
+        osallistujat.push(prompt("Syötä osallistujien nimet: "));
+    }
+
+    osallistujat.sort();
+
+    document.write("<ol>");
+    osallistujat.forEach(function(osallistuja) {
+        document.write("<li>" + osallistuja + "</li>");
+    });
+    document.write("</ol>");
+</script>
+</body>
+</html>

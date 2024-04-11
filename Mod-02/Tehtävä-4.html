@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+    // Alustetaan tyhjä taulukko, johon tallennetaan käyttäjän antamat numerot
+    let numbers = [];
+
+    // Pyydetään käyttäjältä numeroita kunnes lopetetaan (käyttäjä syöttää nollan)
+    while (true) {
+        // Pyydetään käyttäjältä syötettä ja muunnetaan se numeroksi
+        let input = parseFloat(prompt("Syötä numeroita (0 lopettaa): "));
+
+        // Tarkistetaan, onko syöte validi numero
+        if (isNaN(input)) {
+            // Jos syöte ei ole validi numero, näytetään virheilmoitus ja jatketaan seuraavaan syötteeseen
+            alert("Virheellinen syöte. Yritä uudelleen.");
+            continue;
+        }
+
+        // Jos käyttäjä syöttää nollan, lopetetaan syötteiden pyytäminen
+        if (input === 0) {
+            break;
+        }
+
+        // Lisätään käyttäjän antama numero taulukkoon
+        numbers.push(input);
+    }
+
+    // Järjestetään numerot suurimmasta pienimpään järjestykseen
+    numbers.sort(function(a, b) {
+        return b - a;
+    });
+
+    // Tulostetaan järjestetyt numerot konsoliin suurimmasta pienimpään
+    console.log("Annetut numerot suurimmasta pienimpään:");
+    numbers.forEach(function(number) {
+        console.log(number);
+    });
+</script>
+</body>
+</html>

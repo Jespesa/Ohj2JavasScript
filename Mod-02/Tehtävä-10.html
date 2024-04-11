@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+// Funktio äänestystuloksen tulostamiseen
+function printResults(candidates) {
+    // Järjestetään ehdokkaat äänimäärän perusteella suurimmasta pienimpään
+    candidates.sort((a, b) => b.votes - a.votes);
+
+    // Tulostetaan voittaja ja äänestystulokset
+    console.log(`The winner is ${candidates[0].name} with ${candidates[0].votes} votes.`);
+    console.log("Results:");
+    candidates.forEach(candidate => console.log(`${candidate.name}: ${candidate.votes} votes`));
+}
+
+// Kysytään ehdokkaiden lukumäärä
+let candidateCount = parseInt(prompt("Enter the number of candidates:"));
+
+// Alustetaan ehdokaslista
+let candidates = [];
+
+// Kysytään ehdokkaiden nimet ja tallennetaan ne ehdokaslistaan
+for (let i = 1; i <= candidateCount; i++) {
+    let name = prompt(`Name for candidate ${i}:`);
+    candidates.push({ name: name, votes: 0 });
+}
+
+// Kysytään äänestäjien lukumäärä
+let voterCount = parseInt(prompt("Enter the number of voters:"));
+
+// Kysytään äänet jokaiselta äänestäjältä
+for (let i = 1; i <= voterCount; i++) {
+    let vote = prompt(`Voter ${i}, enter the candidate's name you want to vote for (leave empty for abstain):`);
+
+    // Etsitään äänestäjän antama ehdokas ja lisätään ääni, jos ehdokas löytyy
+    let candidate = candidates.find(candidate => candidate.name === vote);
+    if (candidate) {
+        candidate.votes++;
+    }
+}
+
+// Tulostetaan äänestystulokset
+printResults(candidates);
+
+</script>
+</body>
+</html>

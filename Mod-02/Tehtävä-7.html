@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     "use strict";
+
+     let heitot = [];
+
+    // Muokattu funktio, joka ottaa parametrina nopan sivujen lukumäärän
+    function heitaNoppaa(sivujenLkm) {
+         // Generoidaan satunnainen luku väliltä 1 ja sivujen lukumäärä
+         return Math.floor(Math.random() * sivujenLkm) + 1;
+    }
+
+    // Kysytään käyttäjältä nopan sivujen lukumäärä
+    let maksimimaara = prompt("Anna nopan sivujen lukumäärä:");
+
+    // Toistetaan nopanheittoja niin kauan, kunnes tulos on nopan maksimimäärä
+    while (true) {
+        // Heitetään noppaa käyttäen käyttäjän antamaa maksimimäärää
+        let tulos = heitaNoppaa(parseInt(maksimimaara));
+
+        // Lisätään tulos taulukkoon heitoille
+        heitot.push(tulos);
+
+        // Tulostetaan heiton tulos
+        document.write("Noppa heitti: " + tulos + "<br>");
+
+        // Jos heiton tulos on nopan maksimimäärä, lopetetaan silmukka
+        if (tulos === parseInt(maksimimaara)) {
+            break;
+        }
+    }
+
+ </script>
+</body>
+</html>

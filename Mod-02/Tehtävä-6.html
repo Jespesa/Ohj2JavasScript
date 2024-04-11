@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     "use strict";
+
+     // Alustetaan tyhjä taulukko heitoille
+     let heitot = [];
+
+    // Määritellään funktio nopan heittämiseksi
+    function heitanoppaa() {
+         // Generoidaan satunnainen luku väliltä 1 ja 6
+         Math.floor(Math.random() * 6) + 1;
+         // Palautetaan toinen generoitu luku väliltä 1 ja 6
+         return Math.floor(Math.random() * 6) + 1;
+    }
+
+    // Silmukka, joka toistaa nopanheittoa niin kauan, kunnes tulos on 6
+    while (true) {
+        // Suoritetaan nopanheitto ja tallennetaan tulos
+        let tulos = heitanoppaa();
+        // Lisätään tulos taulukkoon heitoille
+        heitot.push(tulos);
+        // Tulostetaan heiton tulos selaimeen
+        document.write("Noppa heitti: " + tulos + "<br>");
+        // Jos heiton tulos on 6, lopetetaan silmukka
+        if (tulos === 6) {
+            break;
+        }
+    }
+
+ </script>
+</body>
+</html>

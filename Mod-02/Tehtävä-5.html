@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+    let numbers = []
+
+    while (true) {
+        let input = parseFloat(prompt("Syötä numeroita (Sama lopettaa): "));
+
+        if (isNaN(input)) {
+            alert ("Virheellinen syöte, yritä uudelleen.");
+            continue;
+        }
+
+        if (numbers.includes(input)) {
+            alert("Numero on jo syötetty.")
+            break;
+        }
+
+        numbers.push(input)
+    }
+
+    numbers.sort(function (a, b){
+        return a - b;
+    });
+
+    console.log("Annetut numerot nousevassa järjestyksessä: ");
+    numbers.forEach(function(number) {
+        console.log(number);
+    });
+</script>
+</body>
+</html>
